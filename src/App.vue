@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navbar/>
+    <Input/>
+    <TodoList item='test'/>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+//import HelloWorld from "./components/HelloWorld.vue";
+import Navbar from "./components/Navbar.vue";
+import Input from "./components/Input.vue";
+import TodoList from "./components/TodoList.vue";
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
-    HelloWorld
+    Navbar,
+    Input,
+    TodoList
   }
 };
 </script>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style >
+@import '../node_modules/bulma/css/bulma.css';
+
 </style>
