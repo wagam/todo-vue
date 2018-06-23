@@ -1,16 +1,17 @@
 <template>
   <div id="app">
     <Navbar/>
-    <Input/>
-    <TodoList item='test'/>
+    <Input v-on:add-item="addInputToList"/>
+    <TodoList v-bind:items="items"/>
+
   </div>
 </template>
 
 <script>
 //import HelloWorld from "./components/HelloWorld.vue";
-import Navbar from "./components/Navbar.vue";
-import Input from "./components/Input.vue";
-import TodoList from "./components/TodoList.vue";
+import Navbar from './components/Navbar.vue';
+import Input from './components/Input.vue';
+import TodoList from './components/TodoList.vue';
 
 export default {
   name: 'app',
@@ -18,11 +19,21 @@ export default {
     Navbar,
     Input,
     TodoList
+  },
+  data: function() {
+    return {
+      items: []
+    };
+  },
+  methods: {
+    addInputToList: function(item) {
+      this.items.push(item);
+      item = '';
+    }
   }
 };
 </script>
 
 <style >
 @import '../node_modules/bulma/css/bulma.css';
-
 </style>

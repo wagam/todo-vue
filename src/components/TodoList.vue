@@ -8,11 +8,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td v-for="item of items" >
+        <tr v-for="(item, index) of items" v-bind:key="index">
+          <td >
             {{item}}
           </td>
-          <td><button class="button is-link"><i class="fas fa-trash"></i></button></td>
+          <td><button class="button is-link" v-on:click="deleteItemFromList(item)">-</button></td>
         </tr>
       </tbody>
     </table>
@@ -20,17 +20,15 @@
 </template>
 <script>
 export default {
- name: 'TodoList',
- data: function () {
-   return {
-     items: ['test']
-   }
- },
- props: {
-
- }
-}
+  props: {
+    items: Array
+  },
+  methods: {
+    deleteItemFromList(item) {
+      this.items = this.items.filter(i => i !== item);
+    }
+  }
+};
 </script>
 <style>
-
 </style>
